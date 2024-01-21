@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import ListCard from "../Components/ListCard";
+import { useLocation } from "react-router-dom";
 
 export default function CourseList() {
+  let loc = useLocation();
+  const [location, setLocation] = useState();
+
+  useEffect(() => {
+    setLocation(loc.pathname);
+  }, [loc.pathname]);
+
   const cardData = [
     {
       id: 1,
@@ -81,7 +89,7 @@ export default function CourseList() {
 
   return (
     <>
-      <Navbar />
+      <Navbar loc={location} />
       <div className="card-container">
         {cardData.map((card) => (
           <ListCard
