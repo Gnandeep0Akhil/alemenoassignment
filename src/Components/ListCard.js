@@ -1,8 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function ListCard({ id, title, text, subtext }) {
+export default function ListCard({ iD, title, text, subtext }) {
+  const navigate = useNavigate();
+  const clickHandler = (id) => {
+    navigate(`/course/${id}`);
+  };
   return (
-    <div className="card">
+    <div
+      className="card"
+      onClick={() => {
+        clickHandler(iD);
+      }}
+    >
       <img
         src="https://placekitten.com/200/150"
         className="card-image"

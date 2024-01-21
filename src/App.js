@@ -9,7 +9,7 @@ function App() {
     <Routes>
       <Route path="" element={<CourseList />} />
       <Route path="dashboard" element={<Dashboard />} />
-      <Route path="course" element={<CourseDetails />} />
+      <Route path="course/:id" element={<CourseDetails />} />
     </Routes>
   );
 }
