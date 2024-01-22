@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-export default function DashboardCard({ iD, title, text, subtext, check }) {
-  const [boxcheck, setBoxCheck] = useState(check);
+export default function DashboardCard({ item }) {
+  const [boxcheck, setBoxCheck] = useState(item.isChecked);
 
   const handleCheckboxChange = () => {
     setBoxCheck(!boxcheck);
@@ -15,12 +15,15 @@ export default function DashboardCard({ iD, title, text, subtext, check }) {
         alt="dCardI"
       />
       <div className="dcard-content">
-        <h3 className="dcard-title">{title}</h3>
-        <p className="dcard-text">{text}</p>
-        <p className="dcard-subtext">{subtext}</p>
+        <h3 className="dcard-title">{item.name}</h3>
+        <p className="dcard-text">{item.description}</p>
+        <p className="dcard-subtext">{item.subtext}</p>
         <div className="custom-progress">
-          <div className="custom-progress-bar" style={{ width: `${iD * 8}%` }}>
-            {iD * 8}% {iD * 8 > 20 ? "Completed" : ""}
+          <div
+            className="custom-progress-bar"
+            style={{ width: `${item.id * 8}%` }}
+          >
+            {item.id * 8}% {item.id * 8 > 20 ? "Completed" : ""}
           </div>
         </div>
         <div

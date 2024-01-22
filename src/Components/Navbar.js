@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-export default function Navbar({ loc }) {
-  const [location, setLocation] = useState();
-
-  useEffect(() => {
-    setLocation(loc);
-  }, [loc]);
+export default function Navbar() {
+  const location = useSelector((state) => state.location);
 
   return (
     <nav className="navbar">

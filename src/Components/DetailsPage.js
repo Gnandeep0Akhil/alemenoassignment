@@ -8,27 +8,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useSelector } from "react-redux";
 
-export default function DetailsPage({ identity }) {
-  const SampleCourse = {
-    name: "Sample Course",
-    instructor: "John Doe",
-    description: "This is a sample course description.",
-    enrollmentStatus: "Open",
-    duration: "8 weeks",
-    schedule: "Mon & Wed, 6:00 PM - 8:00 PM",
-    location: "Online",
-    prerequisites: [
-      "Basic Knowledge of Programming",
-      "Intro to Web Development",
-      "Intro to Web Development",
-      "Intro to Web Development",
-      "Intro to Web Development",
-      "Intro to Web Development",
-      "Basic Knowledge of Programming",
-    ],
-    syllabus: "Course syllabus goes here...",
-  };
+export default function DetailsPage() {
+  const select = useSelector((state) => state.select);
 
   return (
     <div className="course-details">
@@ -37,36 +20,34 @@ export default function DetailsPage({ identity }) {
         className="decard-image"
         alt="CardI"
       />
-      <h1 style={{ margin: "30px 5px" }}>
-        {SampleCourse.name + " " + identity}
-      </h1>
+      <h1 style={{ margin: "30px 5px" }}>{select.name}</h1>
       <p className="info">
         <FontAwesomeIcon icon={faUser} /> <strong>Instructor:</strong>{" "}
-        {SampleCourse.instructor}
+        {select.instructor}
       </p>
       <p className="info">
         <FontAwesomeIcon icon={faBook} /> <strong>Description:</strong>{" "}
-        {SampleCourse.description}
+        {select.description}
       </p>
       <p className="info">
         <FontAwesomeIcon icon={faListUl} /> <strong>Enrollment Status:</strong>{" "}
-        {SampleCourse.enrollmentStatus}
+        {select.enrollmentStatus}
       </p>
       <p className="info">
         <FontAwesomeIcon icon={faClock} /> <strong>Duration:</strong>{" "}
-        {SampleCourse.duration}
+        {select.duration}
       </p>
       <p className="info">
         <FontAwesomeIcon icon={faCalendar} /> <strong>Schedule:</strong>{" "}
-        {SampleCourse.schedule}
+        {select.schedule}
       </p>
       <p className="info">
         <FontAwesomeIcon icon={faMapMarker} /> <strong>Location:</strong>{" "}
-        {SampleCourse.location}
+        {select.location}
       </p>
       <p className="info">
         <strong>Pre-requisites:</strong>
-        {SampleCourse.prerequisites.map((prerequisite, index) => (
+        {select.prerequisites.map((prerequisite, index) => (
           <span key={index} className="custom-chip">
             {prerequisite}
           </span>
@@ -76,7 +57,7 @@ export default function DetailsPage({ identity }) {
         <summary className="syllabus-heading">
           <strong>Syllabus:</strong>
         </summary>
-        <p className="syllabus-content">{SampleCourse.syllabus}</p>
+        <p className="syllabus-content">{select.syllabus}</p>
       </details>
     </div>
   );
