@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
+import DetailsPage from "../Components/DetailsPage";
 
 export default function CourseDetails() {
   let { id } = useParams();
@@ -14,7 +15,7 @@ export default function CourseDetails() {
   return (
     <>
       <Navbar loc={location} />
-      <div className="card-container">CourseDetails, {id}</div>
+      <DetailsPage identity={id} />
     </>
   );
 }
