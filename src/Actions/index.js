@@ -5,6 +5,13 @@ export const updateCourse = (courseData) => {
   };
 };
 
+export const updateList = (courseData) => {
+  return {
+    type: "UPDATE_LIST",
+    payload: courseData,
+  };
+};
+
 export const selectCourse = (courseData) => {
   return {
     type: "SELECT_COURSE",

@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import courseReducer from "./courseReducer";
 import selectReducer from "./selectReducer";
+import listReducer from "./listReducer";
 const initialLocation = null;
 
 const locationReducer = (state = initialLocation, action) => {
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   courses: courseReducer,
   select: selectReducer,
   location: locationReducer,
+  list: listReducer,
 });
 
 export default rootReducer;

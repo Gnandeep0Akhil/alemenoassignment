@@ -9,17 +9,14 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useSelector } from "react-redux";
+import myImage from "../Images/bootstrap.png";
 
 export default function DetailsPage() {
   const select = useSelector((state) => state.select);
 
   return (
     <div className="course-details">
-      <img
-        src="https://placekitten.com/200/150"
-        className="decard-image"
-        alt="CardI"
-      />
+      <img src={myImage} className="decard-image" alt="CardI" />
       <h1 style={{ margin: "30px 5px" }}>{select.name}</h1>
       <p className="info">
         <FontAwesomeIcon icon={faUser} /> <strong>Instructor:</strong>{" "}
